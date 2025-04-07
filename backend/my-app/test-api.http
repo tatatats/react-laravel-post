@@ -1,0 +1,76 @@
+GET http://127.0.0.1:8000/api/posts
+
+POST http://127.0.0.1:8000/api/posts
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "新しい投稿",
+  "content": "これはPOSTメソッドで作った投稿です"
+}
+
+GET http://127.0.0.1:8000/api/posts/2
+
+PUT http://127.0.0.1:8000/api/posts/1
+Content-Type: application/json
+
+{
+  "title": "更新されたタイトル",
+  "content": "内容も新しくなりました"
+}
+
+DELETE http://127.0.0.1:8000/api/posts/1
+
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+
+{
+  "name": "テストユーザー",
+  "email": "test@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password"
+}
+
+GET http://127.0.0.1:8000/api/posts
+Accept: application/json
+Authorization: Bearer 4|75SqoAwejP11AGRd8l8kWGM6e4fKScBraAkFhFgkd3700b20
+
+POST http://127.0.0.1:8000/api/logout
+Authorization: Bearer 2|jwXyoo8WatEGOHhuYbaxY4tBe2D40AGpc1UINOHP4ea20341
+
+POST http://127.0.0.1:8000/api/posts
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 2|Bo6IrBHf8V2UpDn5kn3yU5zsZinmwWDVKx4TcgMr00468f79
+
+{
+  "title": 123,
+  "content": "これはAPIで作った投稿です"
+}
+
+POST http://127.0.0.1:8000/api/posts
+Content-Type: application/json
+Authorization: Bearer 2|Bo6IrBHf8V2UpDn5kn3yU5zsZinmwWDVKx4TcgMr00468f79
+
+{
+  "title": "新しい投稿",
+  "content": "これはPOSTメソッドで作った投稿です",
+  "user_id": "2"
+}
+
+PUT http://127.0.0.1:8000/api/posts/1
+Content-Type: application/json
+Authorization: Bearer 4|75SqoAwejP11AGRd8l8kWGM6e4fKScBraAkFhFgkd3700b20
+
+{
+  "title": "更新されたタイトル",
+  "content": "1234"
+}
